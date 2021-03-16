@@ -1,0 +1,57 @@
+﻿@model Invitations.Models.Guest
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link type="text/css" href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/Styles.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+</head>
+<body>
+    @*<div class="alert alert-danger">
+        @{
+
+            try
+            {
+                WebMail.SmtpServer = "smpt.przyklad.pl";
+                WebMail.SmtpPort = 587;
+                WebMail.EnableSsl = true;
+                WebMail.UserName = "nazwauzytkownikaSMTP";
+                WebMail.Password = "haslouzytkownikaSMTP";
+                WebMail.From = "rsvp@przykład.pl";
+
+                WebMail.Send("gospodarz-przyjecia@przyklad.pl", "Powiadomienie rsvp",
+                    Model.Name + ((Model.Name + ((Model.WillAttend ?? false) ? "will come" : "won't come"))));
+            }
+            catch (Exception)
+            {
+                @:<b>Response have not been sent</b>
+            }
+        }
+    </div>*@
+    <div class="transbox">
+
+        <div class="text-center">
+            <h1>Thank you, @Model.Name!</h1>
+            <div class="lead">
+                @if (Model.WillAttend == true)
+                {
+                    @:We are really happy that you will come. The drinks are already cooling in the fridge!
+                }
+                else
+                {
+                    @:Maybe we will catch up another time!
+                }
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
